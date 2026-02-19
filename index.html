@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>42Friend Notifier – Retirement Notice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --accent: #38bdf8;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 750px;
+            background: var(--card);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            color: var(--muted);
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .buttons {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            background: #0ea5e9;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: #0f172a;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 42Friend Notifier – Retirement Notice</h1>
+
+        <p>
+            The website <span class="highlight">www.42friend-notifier.de</span> has officially been retired.
+        </p>
+
+        <p>
+            It has been an incredible learning journey for me, and I am truly grateful for the experience.
+            I’m very happy to have given something back to the community through this project.
+            For now, however, I have decided to retire the website.
+        </p>
+
+        <p>
+            If you still need the service, you can find the full source code on GitHub.
+            The repository also includes a README explaining how to host the website on school computers.
+        </p>
+
+        <p>
+            If you’re interested in taking over the project, the yearly cost is minimal:
+            approximately <span class="highlight">1€ for the domain</span>, and hosting can be done
+            using the DigitalOcean student pack (around <span class="highlight">$200 free credit</span>).
+            The learning curve is very rewarding!
+        </p>
+
+        <div class="buttons">
+            <a class="btn btn-primary" href="https://github.com/Rameshtim/42_Friend" target="_blank">
+                View on GitHub
+            </a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/ramesh-timsina/" target="_blank">
+                Contact on LinkedIn
+            </a>
+        </div>
+
+        <footer>
+            You can also reach out to me on Slack. I’m happy to help if you want to continue the project.
+        </footer>
+    </div>
+</body>
+</html>
