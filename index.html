@@ -34,7 +34,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 2rem;
+    padding: 5rem 2rem;
     text-align: center;
 }
 
@@ -45,35 +45,14 @@ section {
 h1 {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     letter-spacing: -1px;
 }
 
-h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
+.retired {
+    font-size: 1.3rem;
+    color: var(--accent);
     margin-bottom: 3rem;
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-}
-
-a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.highlight {
-    color: var(--accent);
     font-weight: 600;
 }
 
@@ -82,26 +61,19 @@ a:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .stat-card {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(20px);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: 20px;
-    width: 250px;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-.stat-card.visible {
-    opacity: 1;
-    transform: translateY(0);
+    width: 260px;
 }
 
 .stat-number {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
 }
@@ -111,143 +83,207 @@ a:hover {
     font-size: 0.95rem;
 }
 
-.footer-highlight {
-    margin-top: 3rem;
-    font-size: 1.1rem;
+/* Flashing bullet point */
+.bullet-flash {
+    font-size: 1.3rem;
+    color: var(--muted);
+    min-height: 2rem;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.bullet-flash.visible {
+    opacity: 1;
+}
+
+/* Scroll hint */
+.scroll-indicator {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+.next-section {
+    background: #050505;
+    padding: 6rem 2rem;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
     font-weight: 600;
+    transition: 0.3s ease;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: #0ea5e9;
+}
+
+.btn-secondary {
+    border: 1px solid var(--accent);
     color: var(--accent);
 }
 
-.fade-section {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease, transform 1s ease;
+.btn-secondary:hover {
+    background: var(--accent);
+    color: #000;
 }
 
-.fade-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+.footer-text {
+    margin-top: 2rem;
+    font-size: 1.15rem;
+    color: var(--muted);
+    line-height: 1.8;
 }
 
+.footer-highlight {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 600;
+}
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section>
-    <div class="container fade-section">
-        <h1>42Friend Notifier</h1>
-        <p class="highlight">Officially Retired</p>
-
-        <p>
-            After an incredible year of learning and building, I’ve decided to retire the project.
-            It has been a privilege giving something back to the 42 community.
-        </p>
-
-        <p>
-            The full source code is available on 
-            <a href="https://github.com/Rameshtim/42_Friend" target="_blank">GitHub</a>,
-            including instructions on how to host it on school computers.
-        </p>
-
-        <p>
-            If you're interested in taking over, the yearly cost is minimal —
-            about <span class="highlight">1€ for the domain</span>, and hosting can be done
-            using the DigitalOcean student pack (~$200 free credit).
-        </p>
-    </div>
-</section>
-
-<!-- STATS -->
+<!-- HERO + STATS + Flashing Bullets -->
 <section>
     <div class="container">
-        <h2 class="fade-section">Impact & Statistics</h2>
+        <h1>42Friend Notifier</h1>
+        <div class="retired">Officially Retired</div>
 
+        <!-- Stats -->
         <div class="stats">
             <div class="stat-card">
                 <div class="stat-number" data-target="50420">0</div>
                 <div class="stat-label">Total API Requests</div>
             </div>
-
             <div class="stat-card">
                 <div class="stat-number" data-target="933">0</div>
                 <div class="stat-label">Generated Tokens</div>
             </div>
-
             <div class="stat-card">
                 <div class="stat-number" data-target="287">0</div>
                 <div class="stat-label">Unique Users</div>
             </div>
         </div>
 
-        <p class="fade-section" style="margin-top:3rem;">
-            These requests were made to the 42 API.
-            I hope the service has been helpful to many of you.
-        </p>
+        <!-- Flashing bullet points -->
+        <div class="bullet-flash" id="bulletFlash"></div>
+
+        <div class="scroll-indicator">
+            ↓ Scroll for more info
+        </div>
     </div>
 </section>
 
-<!-- FOOTER -->
-<section>
-    <div class="container fade-section">
-        <h2>Continue the Journey</h2>
-
-        <p>
-            Interested in continuing the project? 
-            Reach out via 
-            <a href="https://www.linkedin.com/in/ramesh-timsina/" target="_blank">LinkedIn</a>
-            or fork it on 
-            <a href="https://github.com/Rameshtim/42_Friend" target="_blank">GitHub</a>.
+<!-- Full Text / CTA Section -->
+<section class="next-section">
+    <div class="container">
+        <p class="footer-text">
+            It has been an incredible learning journey for me, and I am truly grateful for the experience.
+            I’m very happy to have given something back to the community through this project.
         </p>
 
+        <p class="footer-text">
+            If you still need the service, you can find the full source code on 
+            <a href="https://github.com/Rameshtim/42_Friend" target="_blank">GitHub</a>.
+            The repository also includes a README explaining how to host the website on school computers.
+        </p>
+
+        <p class="footer-text">
+            If you’re interested in taking over the project, the yearly cost is minimal:
+            approximately <span class="highlight">1€ for the domain</span>, and hosting can be done
+            using the DigitalOcean student pack (around <span class="highlight">$200 free credit</span>).
+            The learning curve is very rewarding!
+        </p>
+
+        <div class="buttons">
+            <a class="btn btn-primary" href="https://github.com/Rameshtim/42_Friend" target="_blank">View on GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/ramesh-timsina/" target="_blank">Connect on LinkedIn</a>
+        </div>
+
         <div class="footer-highlight">
-            You can also contact me on Slack — I’m happy to help anyone who wants to take it further.
+            I am open to extending the 42 community — reach out on LinkedIn!
         </div>
     </div>
 </section>
 
 <script>
-// Scroll reveal
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.fade-section, .stat-card').forEach(el => {
-    observer.observe(el);
-});
-
-// Animated counters
+// Animated Counters
 const counters = document.querySelectorAll('.stat-number');
-const speed = 200;
+let completed = 0;
 
 counters.forEach(counter => {
     const animate = () => {
         const value = +counter.getAttribute('data-target');
         const data = +counter.innerText;
-        const increment = value / speed;
+        const increment = value / 200;
 
         if (data < value) {
             counter.innerText = Math.ceil(data + increment);
             setTimeout(animate, 10);
         } else {
             counter.innerText = value.toLocaleString();
+            completed++;
+            if (completed === counters.length) {
+                startBulletFlash();
+            }
         }
     };
-
-    const counterObserver = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-            animate();
-            counterObserver.disconnect();
-        }
-    });
-
-    counterObserver.observe(counter);
+    animate();
 });
+
+// Flashing bullets one by one
+const bullets = [
+    "🚀 1 year of running in production",
+    "🌍 Used by 287 unique students",
+    "⚡ Powered by the 42 API",
+    "📦 Source code on GitHub",
+    "💼 Open to takeover — minimal yearly cost (~1€ domain)"
+];
+
+const bulletFlashEl = document.getElementById('bulletFlash');
+
+function startBulletFlash() {
+    let index = 0;
+    function showNext() {
+        bulletFlashEl.classList.remove('visible');
+        setTimeout(() => {
+            bulletFlashEl.textContent = bullets[index];
+            bulletFlashEl.classList.add('visible');
+            index++;
+            if (index < bullets.length) {
+                setTimeout(showNext, 2000); // show each for 2 seconds
+            }
+        }, 500); // fade out 0.5s
+    }
+    showNext();
+}
 </script>
 
 </body>
